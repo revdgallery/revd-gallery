@@ -106,7 +106,8 @@ export default async function ArchiveDetailPage({ params }: ArchiveDetailPagePro
         )}
 
         {/* Download Catalog */}
-       {archiveItem.catalogPdf?.asset?.url && (
+      {archiveItem.catalogPdf?.asset?.url && (
+
 
 
           <div className="mb-12 p-6 bg-gallery-white rounded-lg inline-flex items-center gap-4">
@@ -116,6 +117,7 @@ export default async function ArchiveDetailPage({ params }: ArchiveDetailPagePro
             </div>
             <a
              href={archiveItem.catalogPdf?.asset?.url}
+
 
               download
               className="px-4 py-2 bg-gallery-charcoal text-gallery-white rounded 
