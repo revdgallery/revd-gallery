@@ -106,7 +106,9 @@ export default async function ArchiveDetailPage({ params }: ArchiveDetailPagePro
         )}
 
         {/* Download Catalog */}
-     archiveItem.catalogPdf?.asset?.url
+     {archiveItem.catalogPdf?.asset?.url && (
+
+
 
 
 
@@ -117,7 +119,8 @@ export default async function ArchiveDetailPage({ params }: ArchiveDetailPagePro
               <p className="text-sm text-gallery-mid">Download the full catalog (PDF)</p>
             </div>
             <a
-             href={archiveItem.catalogPdf?.asset?.url && (
+            catalogPdf?.asset?.url
+
 
 
               download
