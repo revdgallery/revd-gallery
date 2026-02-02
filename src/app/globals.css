@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --gallery-white: #FFFFFF;
+  --gallery-light: #F5F5F5;
+  --gallery-gray: #E5E5E5;
+  --gallery-mid: #9CA3AF;
+  --gallery-dark: #4B5563;
+  --gallery-charcoal: #1F2937;
+  --gallery-black: #111827;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background-color: var(--gallery-light);
+  color: var(--gallery-charcoal);
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--gallery-light);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gallery-mid);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gallery-dark);
+}
+
+/* Gallery canvas styles */
+.gallery-canvas {
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+}
+
+.gallery-canvas:active {
+  cursor: grabbing;
+}
+
+/* Artwork modal */
+.artwork-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Booklet styles for archive */
+.booklet {
+  perspective: 1500px;
+  transition: transform 0.3s ease;
+}
+
+.booklet:hover {
+  transform: translateY(-8px);
+}
+
+/* Navigation arrows */
+.nav-arrow {
+  @apply w-12 h-12 flex items-center justify-center rounded-full bg-gallery-white/90 
+         text-gallery-charcoal shadow-lg hover:bg-gallery-white hover:scale-110 
+         transition-all duration-300 cursor-pointer;
+}
+
+.nav-arrow:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Sidebar link styles */
+.sidebar-link {
+  @apply block px-6 py-3 text-gallery-dark hover:text-gallery-charcoal 
+         hover:bg-gallery-gray/50 transition-all duration-200 
+         border-l-2 border-transparent hover:border-gallery-charcoal;
+}
+
+.sidebar-link.active {
+  @apply text-gallery-charcoal bg-gallery-gray/50 border-gallery-charcoal font-medium;
+}
+
+/* Loading animation */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.loading-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
