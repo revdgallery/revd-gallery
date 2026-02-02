@@ -106,14 +106,15 @@ export default async function ArchiveDetailPage({ params }: ArchiveDetailPagePro
         )}
 
         {/* Download Catalog */}
-        {archiveItem.catalogPdf?.url && (
+        {archiveItem.catalogPdf?.asset?.url && (
+
           <div className="mb-12 p-6 bg-gallery-white rounded-lg inline-flex items-center gap-4">
             <div>
               <h3 className="font-medium text-gallery-charcoal">Exhibition Catalog</h3>
               <p className="text-sm text-gallery-mid">Download the full catalog (PDF)</p>
             </div>
             <a
-              href={archiveItem.catalogPdf.url}
+             href={archiveItem.catalogPdf?.asset?.url}
               download
               className="px-4 py-2 bg-gallery-charcoal text-gallery-white rounded 
                        hover:bg-gallery-dark transition-colors flex items-center gap-2"
