@@ -105,58 +105,22 @@ export default async function ArchiveDetailPage({ params }: ArchiveDetailPagePro
           </div>
         )}
 
-        {/* Download Catalog */}
-        {archiveItem.catalogPdf?.asset?.url && (
-          <div className="mb-12 p-6 bg-gallery-white rounded-lg inline-flex items-center gap-4">
-            <div>
-              <h3 className="font-medium text-gallery-charcoal">Exhibition Catalog</h3>
-              <p className="text-sm text-gallery-mid">Download the full catalog (PDF)</p>
-            </div>
-            <a
-              href={archiveItem.catalogPdf.asset.url}
-              download
-              className="px-4 py-2 bg-gallery-charcoal text-gallery-white rounded hover:bg-gallery-dark transition-colors flex items-center gap-2"
-            >
-              <Download className="w-4 h-4" />
-              Download
-            </a>
-          </div>
-        )}
-
-        {/* Artworks */}
-        {artworks.length > 0 && (
-          <div className="mb-12">
-            <h2 className="font-display text-2xl text-gallery-charcoal mb-6">
-              Exhibited Works ({artworks.length})
-            </h2>
-            <ArtworkGrid artworks={artworks} />
-          </div>
-        )}
-
-        {/* Exhibition Photos */}
-        {archiveItem.photos && archiveItem.photos.length > 0 && (
-          <div>
-            <h2 className="font-display text-2xl text-gallery-charcoal mb-6">
-              Exhibition Photos
-            </h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-              {archiveItem.photos.map((photo, index) => (
-                <div 
-                  key={index} 
-                  className="relative aspect-square bg-gallery-gray overflow-hidden rounded"
-                >
-                  <Image
-                    src={urlFor(photo).width(400).height(400).url()}
-                    alt={`Exhibition photo ${index + 1}`}
-                    fill
-                    className="object-cover hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-      </div>
+       {/* Download Catalog */}
+{archiveItem.catalogPdf?.asset?.url && (
+  <div className="mb-12 p-6 bg-gallery-white rounded-lg inline-flex items-center gap-4">
+    <div>
+      <h3 className="font-medium text-gallery-charcoal">Exhibition Catalog</h3>
+      <p className="text-sm text-gallery-mid">Download the full catalog (PDF)</p>
     </div>
-  );
-}
+
+    <a
+      href={archiveItem.catalogPdf.asset.url}
+      download
+      className="px-4 py-2 bg-gallery-charcoal text-gallery-white rounded 
+                 hover:bg-gallery-dark transition-colors flex items-center gap-2"
+    >
+      <Download className="w-4 h-4" />
+      Download
+    </a>
+  </div>
+)}

@@ -120,7 +120,8 @@ export default async function ArchivePage() {
                       View Catalog
                       <ExternalLink className="w-3 h-3" />
                     </span>
-                    {item.catalogPdf?.url && (
+               {item.catalogPdf?.asset?.url && (
+
                       <span className="text-sm text-gallery-mid flex items-center gap-1">
                         <Download className="w-3 h-3" />
                         PDF

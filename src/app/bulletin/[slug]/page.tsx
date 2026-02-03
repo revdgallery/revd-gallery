@@ -164,7 +164,8 @@ export default async function BulletinDetailPage({ params }: BulletinDetailPageP
               <div className="prose max-w-none">
                 <PortableText 
                   value={bulletin.content} 
-                  components={portableTextComponents}
+                 components={portableTextComponents as any}
+
                 />
               </div>
             )}
