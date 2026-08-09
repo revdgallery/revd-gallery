@@ -23,32 +23,26 @@ export default async function HomePage() {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative h-[70vh] bg-gallery-charcoal overflow-hidden">
+      {/* Hero Section - Koyu Mor */}
+      <section className="relative h-[70vh] bg-[#2D1B4E] overflow-hidden">
         {homepage?.heroImage ? (
           <Image
             src={urlFor(homepage.heroImage).width(1920).height(1080).url()}
-            alt="REVD Gallery"
+            alt="REV-D GALLERY"
             fill
             className="object-cover opacity-60"
             priority
           />
         ) : (
-          <div className="absolute inset-0 bg-gradient-to-br from-gallery-charcoal to-gallery-black" />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#2D1B4E] to-[#1a0f2e]" />
         )}
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center text-gallery-white px-4">
-            <h1 className="font-display text-5xl md:text-7xl font-semibold mb-4">
-              {homepage?.heroTitle || 'REVD Gallery'}
-            </h1>
-            <p className="text-lg md:text-xl text-gallery-gray max-w-2xl mx-auto">
-              {homepage?.heroSubtitle || 'Contemporary Art Space'}
-            </p>
             {activeExhibition && (
               <Link
                 href="/gallery"
-                className="inline-flex items-center gap-2 mt-8 px-6 py-3 bg-gallery-white text-gallery-charcoal 
-                         hover:bg-gallery-light transition-colors duration-300"
+                className="inline-flex items-center gap-2 mt-8 px-6 py-3 bg-white text-[#2D1B4E] 
+                         hover:bg-purple-100 transition-colors duration-300"
               >
                 Enter Gallery
                 <ArrowRight className="w-4 h-4" />
@@ -192,7 +186,7 @@ export default async function HomePage() {
             About
           </h2>
           <p className="text-gallery-dark leading-relaxed">
-            REVD Gallery is a contemporary art space dedicated to showcasing innovative works 
+            REV-D GALLERY is a contemporary art space dedicated to showcasing innovative works 
             from emerging and established artists. Our virtual gallery allows visitors to 
             experience art in an immersive 3D environment.
           </p>

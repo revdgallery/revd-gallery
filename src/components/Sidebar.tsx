@@ -2,11 +2,11 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Home, Image, Archive, FileText, Mail } from 'lucide-react';
+import { Home, Image as ImageIcon, Archive, FileText, Mail } from 'lucide-react';
 
 const navigation = [
   { name: 'Home', href: '/', icon: Home },
-  { name: 'Gallery', href: '/gallery', icon: Image },
+  { name: 'Gallery', href: '/gallery', icon: ImageIcon },
   { name: 'Archive', href: '/archive', icon: Archive },
   { name: 'Bulletin', href: '/bulletin', icon: FileText },
 ];
@@ -15,16 +15,12 @@ export default function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <aside className="fixed left-0 top-0 h-full w-64 bg-gallery-white border-r border-gallery-gray z-50">
-      {/* Logo */}
-      <div className="px-6 py-8 border-b border-gallery-gray">
+    <aside className="fixed left-0 top-0 h-full w-64 bg-black border-r border-gray-800 z-50">
+      {/* Header */}
+      <div className="px-6 py-6 border-b border-gray-800">
         <Link href="/" className="block">
-          <h1 className="font-display text-2xl font-semibold text-gallery-charcoal tracking-wide">
-            REVD
-          </h1>
-          <span className="text-xs uppercase tracking-[0.3em] text-gallery-mid mt-1 block">
-            Gallery
-          </span>
+          <h1 className="text-white text-xl font-bold">REV-D</h1>
+          <span className="text-gray-400 text-xs">GALLERY</span>
         </Link>
       </div>
 
@@ -44,8 +40,8 @@ export default function Sidebar() {
                     flex items-center gap-3 px-6 py-3 text-sm
                     transition-all duration-200 border-l-2
                     ${isActive 
-                      ? 'text-gallery-charcoal bg-gallery-gray/50 border-gallery-charcoal font-medium' 
-                      : 'text-gallery-dark border-transparent hover:text-gallery-charcoal hover:bg-gallery-gray/30 hover:border-gallery-mid'
+                      ? 'text-white bg-gray-800/50 border-white font-medium' 
+                      : 'text-gray-300 border-transparent hover:text-white hover:bg-gray-800/30 hover:border-gray-500'
                     }
                   `}
                 >
@@ -59,13 +55,19 @@ export default function Sidebar() {
       </nav>
 
       {/* Footer */}
-      <div className="absolute bottom-0 left-0 right-0 p-6 border-t border-gallery-gray">
-        <div className="flex items-center gap-2 text-gallery-mid text-xs">
+      <div className="absolute bottom-0 left-0 right-0 p-6 border-t border-gray-800">
+        <div className="flex items-center gap-2 text-gray-400 text-xs">
           <Mail className="w-3 h-3" />
           <span>revdgallery@gmail.com</span>
         </div>
-        <p className="text-[10px] text-gallery-mid mt-2">
-          © {new Date().getFullYear()} REVD Gallery
+        <Link 
+          href="/terms" 
+          className="block text-[10px] text-gray-400 mt-2 hover:text-white transition-colors"
+        >
+          Terms & Conditions / Legal Disclaimer
+        </Link>
+        <p className="text-[10px] text-gray-400 mt-1">
+          © {new Date().getFullYear()} REV-D Gallery
         </p>
       </div>
     </aside>
